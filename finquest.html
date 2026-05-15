@@ -370,89 +370,104 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .goal-stat-lbl{font-size:12px;font-weight:600;color:var(--t3)}
 
 /* ── MISSIONS ── */
+/* ── Level banner ── */
 .level-banner{
-  background:linear-gradient(135deg,#1A1000 0%,#0D1117 100%);
-  border:1px solid rgba(245,158,11,0.3);border-radius:16px;
-  padding:20px 24px;display:flex;align-items:center;gap:20px;margin-bottom:20px;
+  background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:20px 22px;display:flex;align-items:center;gap:18px;margin-bottom:20px;
 }
 .level-badge{
-  width:64px;height:64px;flex-shrink:0;
+  width:56px;height:56px;flex-shrink:0;
   background:linear-gradient(135deg,var(--gold),var(--goldL));
-  border-radius:50%;display:flex;flex-direction:column;
+  border-radius:16px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(245,158,11,0.35);
 }
 .level-badge-num{font-size:22px;font-weight:900;color:#000;line-height:1}
-.level-badge-lbl{font-size:8px;font-weight:800;color:rgba(0,0,0,0.6);text-transform:uppercase;letter-spacing:0.5px}
-.level-info{flex:1}
-.level-title{font-size:20px;font-weight:800;color:var(--gold)}
-.level-xp{font-size:13px;color:var(--t2);margin-top:2px}
-.xp-bar{height:8px;background:var(--border2);border-radius:99px;margin-top:10px;overflow:hidden}
+.level-badge-lbl{font-size:8px;font-weight:800;color:rgba(0,0,0,0.55);text-transform:uppercase;letter-spacing:0.5px}
+.level-info{flex:1;min-width:0}
+.level-title{font-size:17px;font-weight:800;color:var(--t1)}
+.level-xp{font-size:12px;color:var(--t3);margin-top:2px}
+.xp-bar{height:5px;background:var(--border2);border-radius:99px;margin-top:10px;overflow:hidden}
 .xp-fill{
   height:100%;border-radius:99px;
   background:linear-gradient(90deg,var(--gold),var(--goldL));
   width:78%;transition:width 0.6s cubic-bezier(0.34,1.56,0.64,1);
 }
+.level-next{font-size:11px;color:var(--t3);margin-top:5px}
+.level-next-name{font-size:13px;font-weight:800;color:var(--gold);text-align:right;white-space:nowrap}
+.level-xp-away{font-size:11px;color:var(--t3);text-align:right;margin-top:2px;white-space:nowrap}
 .level-next{font-size:12px;color:var(--t2);margin-top:4px}
 .xp-to-next{color:var(--gold);font-weight:600}
 
+/* ── Mission section header ── */
 .mission-section-title{
-  font-size:14px;font-weight:700;margin-bottom:12px;
-  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--t3);margin-bottom:12px;display:flex;align-items:center;gap:8px;
 }
-.mission-section-title span{color:var(--t2);font-weight:400;font-size:13px}
+.mission-section-meta{font-size:11px;color:var(--t3);font-weight:600;text-transform:none;letter-spacing:0}
 
+/* ── Mission cards ── */
 .mission{
-  display:flex;align-items:center;gap:14px;padding:16px 18px;
-  background:var(--card);border:1px solid var(--border);border-radius:14px;
-  margin-bottom:10px;transition:all 0.2s;cursor:pointer;position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--border);
+  transition:opacity 0.2s;cursor:pointer;position:relative;
 }
-.mission:hover{border-color:var(--border2);transform:translateX(2px)}
-.mission.done{opacity:0.5;pointer-events:none}
+.mission:last-of-type{border-bottom:none}
+.mission:hover .mission-name{color:var(--purpleL)}
+.mission.done{opacity:0.4;pointer-events:none}
 .mission.done .mission-icon{filter:grayscale(1)}
 .mission-icon{
-  font-size:28px;width:46px;height:46px;flex-shrink:0;
-  background:var(--card2);border-radius:12px;
+  font-size:26px;width:44px;height:44px;flex-shrink:0;
+  border-radius:14px;background:var(--bg2);
   display:flex;align-items:center;justify-content:center;
 }
-.mission-info{flex:1}
-.mission-name{font-size:14px;font-weight:600}
-.mission-desc{font-size:12px;color:var(--t2);margin-top:2px;line-height:1.4}
+.mission-info{flex:1;min-width:0}
+.mission-name{font-size:15px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mission-desc{font-size:13px;color:var(--t3);margin-top:3px;line-height:1.5}
 .mission-xp{
-  display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+  display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;
 }
 .xp-pill{
-  background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);
-  color:var(--gold);font-size:12px;font-weight:700;
-  padding:4px 10px;border-radius:99px;
+  background:rgba(245,158,11,0.1);
+  color:var(--gold);font-size:12px;font-weight:800;
+  padding:4px 10px;border-radius:99px;white-space:nowrap;
 }
 .mission-check{
-  width:24px;height:24px;border-radius:50%;border:2px solid var(--border2);
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid var(--border2);
   display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:transparent;transition:all 0.2s;
+  font-size:13px;color:transparent;transition:all 0.25s;
 }
 .mission.done .mission-check{background:var(--green);border-color:var(--green);color:#fff}
 
+/* ── Weekly challenge ── */
 .weekly-mission{
-  background:linear-gradient(135deg,#0F1521,#1A0D2E);
-  border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:20px;margin-bottom:20px;
+  border-radius:18px;padding:20px 20px 18px;margin-bottom:24px;
+  border-left:4px solid var(--purpleL);
+  background:var(--card);border-top:1px solid var(--border);
+  border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.weekly-mission::before{
+  content:'';position:absolute;top:0;right:0;width:140px;height:100%;
+  background:radial-gradient(ellipse at top right,rgba(124,58,237,0.08),transparent 70%);
+  pointer-events:none;
 }
 .weekly-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--purpleGlow);border:1px solid rgba(124,58,237,0.3);
-  color:var(--purpleL);font-size:11px;font-weight:700;
-  padding:3px 10px;border-radius:99px;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px;
+  font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--purpleL);margin-bottom:8px;display:block;
 }
-.weekly-name{font-size:16px;font-weight:700;margin-bottom:4px}
-.weekly-desc{font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:14px}
+.weekly-name{font-size:17px;font-weight:800;color:var(--t1);margin-bottom:6px;line-height:1.3}
+.weekly-desc{font-size:13px;color:var(--t3);line-height:1.55;margin-bottom:16px}
 .weekly-progress-row{display:flex;align-items:center;gap:12px}
-.weekly-progress-bar{flex:1;height:10px;background:var(--border2);border-radius:99px;overflow:hidden}
+.weekly-progress-bar{flex:1;height:6px;background:var(--border2);border-radius:99px;overflow:hidden}
 .weekly-progress-fill{
   height:100%;border-radius:99px;
   background:linear-gradient(90deg,var(--purple),var(--purpleL));
-  width:40%;transition:width 0.5s ease;
+  width:43%;transition:width 0.5s ease;
 }
-.weekly-progress-text{font-size:12px;color:var(--t2);white-space:nowrap}
-.weekly-xp{color:var(--gold);font-weight:700;font-size:14px;white-space:nowrap}
+.weekly-progress-text{font-size:12px;color:var(--t3);white-space:nowrap}
+.weekly-xp{color:var(--gold);font-weight:800;font-size:13px;white-space:nowrap}
 
 /* ── PROGRESS TOGGLE ── */
 .progress-toggle{display:flex;gap:5px;margin-bottom:0}
@@ -535,24 +550,63 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 }
 
 /* ── REPORT CARD ── */
-.grade-display{
-  font-size:120px;font-weight:900;line-height:1;letter-spacing:-6px;
-  background:linear-gradient(135deg,var(--green),var(--greenL));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+.rc-hero{
+  text-align:center;padding:32px 24px 28px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;margin-bottom:20px;
 }
-.grade-period{font-size:14px;color:var(--t2);margin-top:8px}
-.grade-feedback{
-  margin-top:16px;padding:14px;background:rgba(16,185,129,0.07);
-  border:1px solid rgba(16,185,129,0.15);border-radius:10px;
-  font-size:14px;line-height:1.6;color:var(--t1);
+.rc-grade-ring{
+  width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--green) 0% 78%, var(--border2) 78% 100%);
+  position:relative;
 }
-.action-item{
-  margin-top:12px;padding:14px;background:var(--card2);
-  border-radius:10px;display:flex;align-items:flex-start;gap:12px;
+.rc-grade-ring::before{
+  content:'';position:absolute;width:90px;height:90px;
+  border-radius:50%;background:var(--card);
 }
-.action-icon{font-size:20px;flex-shrink:0}
-.action-text{font-size:13px;color:var(--t2);line-height:1.5}
-.action-text strong{color:var(--t1);display:block;margin-bottom:2px}
+.rc-grade-letter{
+  position:relative;font-size:44px;font-weight:900;letter-spacing:-2px;
+  color:var(--green);line-height:1;
+}
+.rc-week{font-size:12px;color:var(--t3);font-weight:600;margin-bottom:12px}
+.rc-feedback{
+  font-size:14px;line-height:1.65;color:var(--t2);
+  max-width:420px;margin:0 auto 20px;
+}
+.rc-feedback strong{color:var(--t1)}
+.rc-action{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:14px;padding:12px 18px;text-align:left;max-width:420px;width:100%;
+}
+.rc-action-icon{font-size:22px;flex-shrink:0}
+.rc-action-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);margin-bottom:2px}
+.rc-action-text{font-size:13px;color:var(--t1);font-weight:600;line-height:1.4}
+
+/* Category grid */
+.rc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;
+}
+.rc-cat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:16px 14px;text-align:center;
+}
+.rc-cat-icon{font-size:22px;margin-bottom:8px}
+.rc-cat-grade{font-size:28px;font-weight:900;line-height:1;margin-bottom:4px}
+.rc-cat-name{font-size:11px;font-weight:700;color:var(--t2);line-height:1.3}
+.rc-cat-desc{font-size:10px;color:var(--t3);margin-top:4px;line-height:1.4}
+
+/* Trend chart card */
+.rc-trend{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:20px 20px 16px;
+}
+
+/* Legacy — hide old classes */
+.grade-display,.grade-period,.grade-feedback,.action-item,.action-icon,.action-text{display:none}
+.report-cat{display:none}
+.health-categories{display:none}
 
 .report-cat{
   display:flex;align-items:center;gap:14px;padding:16px 0;
@@ -568,51 +622,71 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 }
 
 /* ── COMMUNITY ── */
-.milestone-post{
-  background:var(--card);border:1px solid var(--border);border-radius:14px;
-  padding:18px;margin-bottom:12px;transition:border-color 0.2s;
+/* ── Community feed (Instagram-style) ── */
+.community-stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  margin-bottom:20px;overflow:hidden;
 }
-.milestone-post:hover{border-color:var(--border2)}
-.post-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.community-stat-cell{
+  padding:14px 12px;text-align:center;border-right:1px solid var(--border);
+}
+.community-stat-cell:last-child{border-right:none}
+.community-stat-val{font-size:18px;font-weight:900;letter-spacing:-0.5px}
+.community-stat-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);margin-top:3px}
+
+/* Leaderboard strip */
+.lb-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;margin-bottom:24px;scrollbar-width:none}
+.lb-strip::-webkit-scrollbar{display:none}
+.lb-chip{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  flex-shrink:0;cursor:pointer;
+}
+.lb-chip-avatar{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:18px;color:#fff;
+  box-shadow:0 0 0 2.5px var(--card),0 0 0 4px rgba(255,255,255,0.15);
+}
+.lb-chip-avatar.you{box-shadow:0 0 0 2.5px var(--card),0 0 0 4px var(--gold)}
+.lb-chip-name{font-size:11px;font-weight:600;color:var(--t2);text-align:center;max-width:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-chip-xp{font-size:10px;font-weight:700;color:var(--gold)}
+
+/* Feed posts */
+.feed-post{
+  padding:16px 0;border-bottom:1px solid var(--border);
+}
+.feed-post:last-child{border-bottom:none}
+.post-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .post-avatar{
-  width:36px;height:36px;border-radius:50%;
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:14px;flex-shrink:0;
+  font-weight:800;font-size:16px;color:#fff;
 }
-.post-user{font-size:13px;font-weight:600}
-.post-level{font-size:11px;color:var(--gold);margin-top:1px}
-.post-time{margin-left:auto;font-size:11px;color:var(--t3)}
-.post-body{font-size:14px;line-height:1.6;color:var(--t2)}
-.post-body strong{color:var(--t1)}
+.post-meta{flex:1;min-width:0}
+.post-user{font-size:14px;font-weight:700;color:var(--t1)}
+.post-level{font-size:12px;color:var(--t3);margin-top:1px}
+.post-time{font-size:12px;color:var(--t3);flex-shrink:0}
+.post-body{font-size:15px;line-height:1.65;color:var(--t1);margin-bottom:12px}
+.post-body strong{color:var(--t1);font-weight:800}
 .post-milestone{
-  margin-top:10px;padding:10px 14px;
-  background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.15);
-  border-radius:8px;font-size:13px;color:var(--green);font-weight:600;
-  display:flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:20px;
+  background:rgba(16,185,129,0.1);
+  font-size:12px;font-weight:700;color:var(--green);
+  margin-bottom:12px;
 }
-.post-actions{display:flex;align-items:center;gap:16px;margin-top:12px}
+.post-actions{display:flex;align-items:center;gap:20px}
 .post-action{
-  font-size:12px;color:var(--t3);cursor:pointer;transition:color 0.2s;
-  display:flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:600;color:var(--t3);cursor:pointer;
+  transition:color 0.2s;display:flex;align-items:center;gap:5px;
 }
-.post-action:hover{color:var(--t2)}
-.post-action.liked{color:var(--red)}
-.leaderboard-item{
-  display:flex;align-items:center;gap:12px;padding:12px 0;
-  border-bottom:1px solid var(--border);
-}
-.leaderboard-item:last-child{border-bottom:none}
-.lb-rank{font-size:16px;font-weight:800;width:28px;color:var(--t3)}
-.lb-rank.top{color:var(--gold)}
-.lb-avatar{
-  width:36px;height:36px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:13px;flex-shrink:0;
-}
-.lb-info{flex:1}
-.lb-name{font-size:13px;font-weight:600}
-.lb-level{font-size:11px;color:var(--t2);margin-top:1px}
-.lb-xp{font-size:14px;font-weight:700;color:var(--gold)}
+.post-action:hover{color:var(--t1)}
+.post-action.liked{color:#EF4444}
+
+/* Legacy leaderboard — hidden (replaced by strip) */
+.leaderboard-item{display:none}
+.lb-rank,.lb-avatar,.lb-info,.lb-name,.lb-level,.lb-xp{display:none}
 
 /* ── PROFILE ── */
 .profile-hero{
@@ -2092,7 +2166,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 <section id="missions" class="screen">
   <div class="page-header">
     <div class="page-title">Missions</div>
-    <div class="page-sub">AI-personalized to your spending patterns · Complete missions to earn XP</div>
+    <div class="page-sub">Complete missions to earn XP and crush debt faster</div>
   </div>
 
   <!-- Level Banner -->
@@ -2101,43 +2175,43 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
       <div class="level-badge-num">4</div>
       <div class="level-badge-lbl">Level</div>
     </div>
-    <div class="level-info" style="flex:1">
-      <div class="level-title">Debt Fighter</div>
-      <div class="level-xp" id="xp-display">2,340 / 3,000 XP to Level 5</div>
-      <div class="xp-bar"><div class="xp-fill" id="xp-fill"></div></div>
-      <div class="level-next">Level 5 unlocks: <span class="xp-to-next">Avalanche vs Snowball Comparison</span></div>
+    <div class="level-info">
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <div class="level-title">Debt Fighter</div>
+      </div>
+      <div class="level-xp" id="xp-display">2,340 / 3,000 XP</div>
+      <div class="xp-bar" style="margin-top:8px"><div class="xp-fill" id="xp-fill"></div></div>
+      <div class="level-next">Unlocks at Lv.5: <span class="xp-to-next">Avalanche vs Snowball</span></div>
     </div>
-    <div style="text-align:right">
-      <div style="font-size:11px;color:var(--t2);margin-bottom:4px">Next Level</div>
-      <div style="font-size:28px;font-weight:900;color:var(--purpleL)">Debt Crusher</div>
-      <div style="font-size:11px;color:var(--t3);margin-top:2px"><span class="xp-to-next" id="xp-remaining">660</span> XP away</div>
+    <div style="text-align:right;flex-shrink:0">
+      <div class="level-next-name">Debt Crusher</div>
+      <div class="level-xp-away"><span class="xp-to-next" id="xp-remaining">660</span> XP to go</div>
     </div>
   </div>
 
-  <!-- Weekly Mission -->
+  <!-- Weekly Challenge -->
   <div class="weekly-mission">
-    <div class="weekly-tag">⭐ Weekly Challenge</div>
+    <span class="weekly-tag">⭐ Weekly Challenge</span>
     <div class="weekly-name">Cut Dining Expenses by 30%</div>
-    <div class="weekly-desc">We noticed you spent $180 on dining last month. Can you keep it under $126 this week? Based on your patterns, this is the single biggest lever you have right now.</div>
+    <div class="weekly-desc">You spent $180 on dining last month. Keep it under $126 this week — your single biggest lever right now.</div>
     <div class="weekly-progress-row">
-      <div class="weekly-progress-bar">
-        <div class="weekly-progress-fill" id="weekly-bar"></div>
-      </div>
-      <span class="weekly-progress-text">3 of 7 days</span>
+      <div class="weekly-progress-bar"><div class="weekly-progress-fill" id="weekly-bar"></div></div>
+      <span class="weekly-progress-text">3 / 7 days</span>
       <span class="weekly-xp">+200 XP</span>
     </div>
   </div>
 
   <!-- Daily Missions -->
   <div class="mission-section-title">
-    Today's Missions <span>· 3 available · 0 completed</span>
+    Today's Missions
+    <span class="mission-section-meta">3 available · 0 done</span>
   </div>
 
   <div class="mission" onclick="completeMission(this,75,'🍳')">
     <div class="mission-icon">🍳</div>
     <div class="mission-info">
       <div class="mission-name">Cook at Home Tonight</div>
-      <div class="mission-desc">Skip delivery and cook instead. Last week you ordered out 4 times — this one swap could save you $35.</div>
+      <div class="mission-desc">Skip delivery tonight — you ordered out 4 times last week. This one swap saves you $35.</div>
     </div>
     <div class="mission-xp">
       <div class="xp-pill">+75 XP</div>
@@ -2149,7 +2223,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
     <div class="mission-icon">📱</div>
     <div class="mission-info">
       <div class="mission-name">Cancel One Unused Subscription</div>
-      <div class="mission-desc">You have 7 active subscriptions. Review them and cancel the one you've used least this month.</div>
+      <div class="mission-desc">You have 7 active subscriptions. Cancel the one you've used least this month.</div>
     </div>
     <div class="mission-xp">
       <div class="xp-pill">+50 XP</div>
@@ -2161,7 +2235,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
     <div class="mission-icon">💳</div>
     <div class="mission-info">
       <div class="mission-name">Make an Extra $25 Payment</div>
-      <div class="mission-desc">You got paid today. Put $25 toward your Chase card before touching anything else — it'll save you $2.80 in interest this month.</div>
+      <div class="mission-desc">You got paid today. Put $25 toward your Chase card first — saves $2.80 in interest this month.</div>
     </div>
     <div class="mission-xp">
       <div class="xp-pill">+100 XP</div>
@@ -2169,20 +2243,28 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
     </div>
   </div>
 
-  <div class="section-gap"></div>
-  <div class="mission-section-title">Sponsored Mission <span>· Earn XP + real benefit</span></div>
-
-  <div class="mission" style="border-color:rgba(59,130,246,0.3);background:linear-gradient(135deg,rgba(59,130,246,0.05),var(--card))" onclick="completeMission(this,150,'🏦')">
-    <div class="mission-icon">🏦</div>
-    <div class="mission-info">
-      <div class="mission-name">Try a High-Yield Savings Account</div>
-      <div class="mission-desc">Move $25 into a HYSA this week. You'll earn 4.8% APY vs 0.01% at your current bank — that's $12 vs $0.002 annually per $250. <span class="tag tag-blue">SoFi Partner</span></div>
+  <!-- Sponsored Mission -->
+  <div style="margin-top:28px">
+    <div class="mission-section-title">
+      Sponsored
+      <span class="mission-section-meta">· Earn XP + a real benefit</span>
     </div>
-    <div class="mission-xp">
-      <div class="xp-pill">+150 XP</div>
-      <div class="mission-check">✓</div>
+    <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.18);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer" onclick="completeMission(this,150,'🏦')">
+      <div class="mission-icon" style="background:rgba(59,130,246,0.1);font-size:26px">🏦</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:15px;font-weight:700;color:var(--t1);display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          Try a High-Yield Savings Account
+          <span style="font-size:10px;font-weight:800;letter-spacing:.5px;background:rgba(59,130,246,0.15);color:#60A5FA;padding:2px 8px;border-radius:99px">SoFi Partner</span>
+        </div>
+        <div style="font-size:13px;color:var(--t3);margin-top:3px;line-height:1.5">Move $25 into a HYSA. Earn 4.8% APY vs 0.01% at your current bank.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
+        <div class="xp-pill">+150 XP</div>
+        <div class="mission-check">✓</div>
+      </div>
     </div>
   </div>
+
 </section>
 
 <!-- ══════════════ SIMULATOR ══════════════ -->
@@ -2306,241 +2388,214 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 <!-- ══════════════ REPORT CARD ══════════════ -->
 <section id="reportcard" class="screen">
   <div class="page-header">
-    <div class="page-title">Weekly Report Card</div>
-    <div class="page-sub">Week of April 7–13, 2026 · Every Sunday in your inbox</div>
+    <div class="page-title">Report Card</div>
+    <div class="page-sub">Week of April 7–13, 2026</div>
   </div>
 
-  <div class="g2">
-    <div class="card">
-      <div class="card-label">This Week's Grade</div>
-      <div class="grade-display">B+</div>
-      <div class="grade-period">Apr 7 – Apr 13, 2026</div>
-      <div class="grade-feedback">
-        You made your minimum payment on time and avoided dining out on 5 of 7 days. Your streak held strong at 14 days. The only drag: one $47 delivery order mid-week set your timeline back slightly.
-      </div>
-      <div class="action-item">
-        <div class="action-icon">🎯</div>
-        <div class="action-text">
-          <strong>Your one action for next week</strong>
-          Set a $40 weekly dining budget and use cash — it's harder to overspend when you can see it leaving your hand.
-        </div>
-      </div>
+  <!-- Grade hero -->
+  <div class="rc-hero">
+    <div class="rc-grade-ring">
+      <div class="rc-grade-letter">B+</div>
     </div>
-
-    <div class="card">
-      <div class="card-label">Category Breakdown</div>
-      <div class="report-cat">
-        <div class="report-cat-icon">💳</div>
-        <div class="report-cat-info">
-          <div class="report-cat-name">Debt Payments</div>
-          <div class="report-cat-desc">Made minimum + $25 extra on Chase</div>
-        </div>
-        <div class="report-cat-grade" style="color:var(--green)">A</div>
-      </div>
-      <div class="report-cat">
-        <div class="report-cat-icon">🍽️</div>
-        <div class="report-cat-info">
-          <div class="report-cat-name">Dining & Takeout</div>
-          <div class="report-cat-desc">$63 spent · Target was $40</div>
-        </div>
-        <div class="report-cat-grade" style="color:var(--orange)">C+</div>
-      </div>
-      <div class="report-cat">
-        <div class="report-cat-icon">🎯</div>
-        <div class="report-cat-info">
-          <div class="report-cat-name">Mission Completion</div>
-          <div class="report-cat-desc">4 of 7 daily missions complete</div>
-        </div>
-        <div class="report-cat-grade" style="color:var(--gold)">B-</div>
-      </div>
-      <div class="report-cat">
-        <div class="report-cat-icon">🔥</div>
-        <div class="report-cat-info">
-          <div class="report-cat-name">Streak & Consistency</div>
-          <div class="report-cat-desc">14-day streak · 0 missed check-ins</div>
-        </div>
-        <div class="report-cat-grade" style="color:var(--green)">A+</div>
-      </div>
-      <div class="report-cat">
-        <div class="report-cat-icon">💰</div>
-        <div class="report-cat-info">
-          <div class="report-cat-name">Savings Rate</div>
-          <div class="report-cat-desc">Saved $120 of $4,200 income (2.9%)</div>
-        </div>
-        <div class="report-cat-grade" style="color:var(--orange)">C</div>
+    <div class="rc-week">Apr 7 – Apr 13, 2026</div>
+    <div class="rc-feedback">
+      Minimum payment on time, avoided dining out <strong>5 of 7 days</strong>, streak held at <strong>14 days</strong>. One $47 delivery order mid-week was the only drag.
+    </div>
+    <div class="rc-action" style="margin:0 auto">
+      <div class="rc-action-icon">🎯</div>
+      <div>
+        <div class="rc-action-label">Focus for next week</div>
+        <div class="rc-action-text">Set a $40 dining budget and use cash — harder to overspend when you see it leaving your hand.</div>
       </div>
     </div>
   </div>
 
-  <div class="card" style="margin-bottom:16px">
-    <div class="card-label">🏥 Health Score Breakdown</div>
-    <div class="health-categories">
-      <div class="health-row">
-        <span class="health-row-label">Debt payments</span>
-        <div class="health-bar"><div class="health-bar-fill" style="background:var(--green);width:85%"></div></div>
-        <span class="health-grade" style="color:var(--green)">A</span>
-      </div>
-      <div class="health-row">
-        <span class="health-row-label">Spending control</span>
-        <div class="health-bar"><div class="health-bar-fill" style="background:var(--gold);width:72%"></div></div>
-        <span class="health-grade" style="color:var(--gold)">B</span>
-      </div>
-      <div class="health-row">
-        <span class="health-row-label">Savings rate</span>
-        <div class="health-bar"><div class="health-bar-fill" style="background:var(--orange);width:58%"></div></div>
-        <span class="health-grade" style="color:var(--orange)">C+</span>
-      </div>
-      <div class="health-row">
-        <span class="health-row-label">Streak consistency</span>
-        <div class="health-bar"><div class="health-bar-fill" style="background:var(--green);width:93%"></div></div>
-        <span class="health-grade" style="color:var(--green)">A+</span>
-      </div>
+  <!-- Category grid -->
+  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:12px">Category Breakdown</div>
+  <div class="rc-grid">
+    <div class="rc-cat">
+      <div class="rc-cat-icon">💳</div>
+      <div class="rc-cat-grade" style="color:var(--green)">A</div>
+      <div class="rc-cat-name">Debt Payments</div>
+      <div class="rc-cat-desc">Min + $25 extra on Chase</div>
+    </div>
+    <div class="rc-cat">
+      <div class="rc-cat-icon">🍽️</div>
+      <div class="rc-cat-grade" style="color:var(--orange)">C+</div>
+      <div class="rc-cat-name">Dining & Takeout</div>
+      <div class="rc-cat-desc">$63 spent · target $40</div>
+    </div>
+    <div class="rc-cat">
+      <div class="rc-cat-icon">🎯</div>
+      <div class="rc-cat-grade" style="color:var(--gold)">B−</div>
+      <div class="rc-cat-name">Missions</div>
+      <div class="rc-cat-desc">4 of 7 complete</div>
+    </div>
+    <div class="rc-cat">
+      <div class="rc-cat-icon">🔥</div>
+      <div class="rc-cat-grade" style="color:var(--green)">A+</div>
+      <div class="rc-cat-name">Streak</div>
+      <div class="rc-cat-desc">14 days · 0 missed</div>
+    </div>
+    <div class="rc-cat">
+      <div class="rc-cat-icon">💰</div>
+      <div class="rc-cat-grade" style="color:var(--orange)">C</div>
+      <div class="rc-cat-name">Savings Rate</div>
+      <div class="rc-cat-desc">$120 saved (2.9%)</div>
+    </div>
+    <div class="rc-cat" style="border-style:dashed;opacity:0.4;cursor:default">
+      <div class="rc-cat-icon">➕</div>
+      <div class="rc-cat-grade" style="color:var(--t3);font-size:20px">—</div>
+      <div class="rc-cat-name">More soon</div>
+      <div class="rc-cat-desc">Coming next update</div>
     </div>
   </div>
 
-  <div class="card section-gap">
-    <div class="card-label">📈 Health Score Trend</div>
+  <!-- Trend chart -->
+  <div class="rc-trend">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:16px">📈 Score Trend</div>
     <canvas id="trendChart" height="90"></canvas>
   </div>
+
 </section>
 
 <!-- ══════════════ COMMUNITY ══════════════ -->
 <section id="community" class="screen">
   <div class="page-header">
-    <div class="page-title">Community</div>
-    <div class="page-sub">Anonymous milestones · Real accountability · You're not alone</div>
+    <div class="page-title">Community 🌎</div>
+    <div class="page-sub">Anonymous milestones · Real accountability</div>
   </div>
 
-  <div class="g2">
-    <div>
-      <div class="mission-section-title">🏆 Recent Milestones</div>
+  <!-- Community stats row -->
+  <div class="community-stats-row">
+    <div class="community-stat-cell">
+      <div class="community-stat-val" style="color:var(--green)">$4.2M</div>
+      <div class="community-stat-lbl">Debt Paid Off</div>
+    </div>
+    <div class="community-stat-cell">
+      <div class="community-stat-val">12.8K</div>
+      <div class="community-stat-lbl">Active Streaks</div>
+    </div>
+    <div class="community-stat-cell">
+      <div class="community-stat-val" style="color:var(--orange)">8.3K</div>
+      <div class="community-stat-lbl">Pauses This Week</div>
+    </div>
+    <div class="community-stat-cell">
+      <div class="community-stat-val" style="color:var(--gold)">1,204</div>
+      <div class="community-stat-lbl">🎉 Debt-Free</div>
+    </div>
+  </div>
 
-      <div class="milestone-post">
-        <div class="post-header">
-          <div class="post-avatar" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">M</div>
-          <div>
-            <div class="post-user">anonymous · Debt Crusher</div>
-            <div class="post-level">⚡ Level 5 · 34-day streak</div>
-          </div>
-          <div class="post-time">2h ago</div>
+  <!-- Leaderboard strip -->
+  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:12px">🏅 Friends Leaderboard</div>
+  <div class="lb-strip">
+    <div class="lb-chip">
+      <div class="lb-chip-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">S</div>
+      <div class="lb-chip-name">Sarah K.</div>
+      <div class="lb-chip-xp">8,420 XP</div>
+    </div>
+    <div class="lb-chip">
+      <div class="lb-chip-avatar you" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">A</div>
+      <div class="lb-chip-name">You</div>
+      <div class="lb-chip-xp">2,340 XP</div>
+    </div>
+    <div class="lb-chip">
+      <div class="lb-chip-avatar" style="background:linear-gradient(135deg,#10B981,#3B82F6)">M</div>
+      <div class="lb-chip-name">Marcus T.</div>
+      <div class="lb-chip-xp">1,890 XP</div>
+    </div>
+    <div class="lb-chip">
+      <div class="lb-chip-avatar" style="background:linear-gradient(135deg,#3B82F6,#8B5CF6)">J</div>
+      <div class="lb-chip-name">Jamie L.</div>
+      <div class="lb-chip-xp">980 XP</div>
+    </div>
+    <div class="lb-chip">
+      <div class="lb-chip-avatar" style="background:linear-gradient(135deg,#6B7280,#4B5563)">C</div>
+      <div class="lb-chip-name">Casey R.</div>
+      <div class="lb-chip-xp">410 XP</div>
+    </div>
+  </div>
+
+  <!-- Feed -->
+  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:4px">Recent Milestones</div>
+  <div>
+
+    <!-- Post 1 -->
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">M</div>
+        <div class="post-meta">
+          <div class="post-user">anonymous <span style="font-size:12px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(124,58,237,0.15);color:#A78BFA;margin-left:6px">Debt Crusher</span></div>
+          <div class="post-level">⚡ Level 5 · 🔥 34-day streak</div>
         </div>
-        <div class="post-body">Just paid off my first card in full. <strong>Chase Freedom — $3,200 — GONE.</strong> Started IdealU 4 months ago thinking I'd never get here. The daily missions kept me accountable on days I wanted to give up.</div>
-        <div class="post-milestone">🎉 Paid off Chase Freedom Card — $3,200</div>
-        <div class="post-actions">
-          <div class="post-action liked" onclick="this.classList.toggle('liked')">❤️ 47</div>
-          <div class="post-action">💬 12 replies</div>
-          <div class="post-action">🔗 Share</div>
-        </div>
+        <div class="post-time">2h ago</div>
       </div>
-
-      <div class="milestone-post">
-        <div class="post-header">
-          <div class="post-avatar" style="background:linear-gradient(135deg,#10B981,#3B82F6)">T</div>
-          <div>
-            <div class="post-user">anonymous · Freedom Seeker</div>
-            <div class="post-level">⚡ Level 6 · 91-day streak</div>
-          </div>
-          <div class="post-time">1d ago</div>
-        </div>
-        <div class="post-body">90-day streak! My debt-free date moved from <strong>June 2030 to November 2027</strong> just by following the missions consistently. The what-if simulator got me obsessed with moving that date earlier.</div>
-        <div class="post-milestone">🔥 90-Day Streak Achieved</div>
-        <div class="post-actions">
-          <div class="post-action" onclick="this.classList.toggle('liked');this.textContent=(this.classList.contains('liked')?'❤️ 93':'❤️ 92')">❤️ 92</div>
-          <div class="post-action">💬 8 replies</div>
-          <div class="post-action">🔗 Share</div>
-        </div>
-      </div>
-
-      <div class="milestone-post">
-        <div class="post-header">
-          <div class="post-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">R</div>
-          <div>
-            <div class="post-user">anonymous · Budget Builder</div>
-            <div class="post-level">⚡ Level 3 · 7-day streak</div>
-          </div>
-          <div class="post-time">3d ago</div>
-        </div>
-        <div class="post-body">The Pause feature stopped me from buying a $180 jacket I didn't need. It said <strong>"Is this worth 6 more days of debt?"</strong> and honestly... it wasn't. That $180 went straight to my student loan instead.</div>
-        <div class="post-actions">
-          <div class="post-action" onclick="this.classList.toggle('liked');this.textContent=(this.classList.contains('liked')?'❤️ 31':'❤️ 30')">❤️ 30</div>
-          <div class="post-action">💬 5 replies</div>
-          <div class="post-action">🔗 Share</div>
-        </div>
+      <div class="post-body">Just paid off my first card in full. <strong>Chase Freedom — $3,200 — GONE.</strong> Started IdealU 4 months ago thinking I'd never get here. The daily missions kept me accountable on days I wanted to give up.</div>
+      <div class="post-milestone">🎉 Paid off Chase Freedom Card — $3,200</div>
+      <div class="post-actions">
+        <div class="post-action liked" onclick="toggleLike(this,47)">❤️ <span>47</span></div>
+        <div class="post-action">💬 <span>12</span></div>
+        <div class="post-action">↗️ <span>Share</span></div>
       </div>
     </div>
 
-    <div>
-      <div class="mission-section-title">🏅 Friends Leaderboard</div>
-      <div class="card">
-        <div class="leaderboard-item">
-          <div class="lb-rank top">1</div>
-          <div class="lb-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">S</div>
-          <div class="lb-info">
-            <div class="lb-name">Sarah K.</div>
-            <div class="lb-level">Debt Crusher · Lv.5 · 🔥 34 days</div>
-          </div>
-          <div class="lb-xp">8,420 XP</div>
+    <!-- Post 2 -->
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#10B981,#3B82F6)">T</div>
+        <div class="post-meta">
+          <div class="post-user">anonymous <span style="font-size:12px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(16,185,129,0.15);color:#34D399;margin-left:6px">Freedom Seeker</span></div>
+          <div class="post-level">⚡ Level 6 · 🔥 91-day streak</div>
         </div>
-        <div class="leaderboard-item">
-          <div class="lb-rank top">2</div>
-          <div class="lb-avatar" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">A</div>
-          <div class="lb-info">
-            <div class="lb-name">You (Alex)</div>
-            <div class="lb-level">Debt Fighter · Lv.4 · 🔥 14 days</div>
-          </div>
-          <div class="lb-xp">2,340 XP</div>
-        </div>
-        <div class="leaderboard-item">
-          <div class="lb-rank">3</div>
-          <div class="lb-avatar" style="background:linear-gradient(135deg,#10B981,#3B82F6)">M</div>
-          <div class="lb-info">
-            <div class="lb-name">Marcus T.</div>
-            <div class="lb-level">Debt Fighter · Lv.4 · 🔥 9 days</div>
-          </div>
-          <div class="lb-xp">1,890 XP</div>
-        </div>
-        <div class="leaderboard-item">
-          <div class="lb-rank">4</div>
-          <div class="lb-avatar" style="background:linear-gradient(135deg,#3B82F6,#8B5CF6)">J</div>
-          <div class="lb-info">
-            <div class="lb-name">Jamie L.</div>
-            <div class="lb-level">Budget Builder · Lv.3 · 🔥 5 days</div>
-          </div>
-          <div class="lb-xp">980 XP</div>
-        </div>
-        <div class="leaderboard-item">
-          <div class="lb-rank">5</div>
-          <div class="lb-avatar" style="background:linear-gradient(135deg,#6B7280,#4B5563)">C</div>
-          <div class="lb-info">
-            <div class="lb-name">Casey R.</div>
-            <div class="lb-level">Debt Aware · Lv.2 · 🔥 2 days</div>
-          </div>
-          <div class="lb-xp">410 XP</div>
-        </div>
+        <div class="post-time">1d ago</div>
       </div>
-
-      <div class="card section-gap" style="margin-top:16px">
-        <div class="card-label">📊 Community Stats</div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px;color:var(--t2)">Total debt paid off (all users)</span>
-            <span style="font-size:16px;font-weight:700;color:var(--green)">$4.2M</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px;color:var(--t2)">Active streaks today</span>
-            <span style="font-size:16px;font-weight:700">12,847</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px;color:var(--t2)">Purchases paused this week</span>
-            <span style="font-size:16px;font-weight:700;color:var(--orange)">8,293</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px;color:var(--t2)">Debt-free celebrations</span>
-            <span style="font-size:16px;font-weight:700;color:var(--gold)">🎉 1,204</span>
-          </div>
-        </div>
+      <div class="post-body">90-day streak! My debt-free date moved from <strong>June 2030 to November 2027</strong> just by following the missions consistently. The what-if simulator got me obsessed with moving that date earlier.</div>
+      <div class="post-milestone">🔥 90-Day Streak Achieved</div>
+      <div class="post-actions">
+        <div class="post-action" onclick="toggleLike(this,92)">❤️ <span>92</span></div>
+        <div class="post-action">💬 <span>8</span></div>
+        <div class="post-action">↗️ <span>Share</span></div>
       </div>
     </div>
+
+    <!-- Post 3 -->
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">R</div>
+        <div class="post-meta">
+          <div class="post-user">anonymous <span style="font-size:12px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(245,158,11,0.15);color:#FCD34D;margin-left:6px">Budget Builder</span></div>
+          <div class="post-level">⚡ Level 3 · 🔥 7-day streak</div>
+        </div>
+        <div class="post-time">3d ago</div>
+      </div>
+      <div class="post-body">The Pause feature stopped me from buying a $180 jacket I didn't need. It asked <strong>"Is this worth 6 more days of debt?"</strong> and honestly… it wasn't. That $180 went straight to my student loan instead.</div>
+      <div class="post-milestone">⏸️ Paused a $180 purchase</div>
+      <div class="post-actions">
+        <div class="post-action" onclick="toggleLike(this,30)">❤️ <span>30</span></div>
+        <div class="post-action">💬 <span>5</span></div>
+        <div class="post-action">↗️ <span>Share</span></div>
+      </div>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#3B82F6,#06B6D4)">K</div>
+        <div class="post-meta">
+          <div class="post-user">anonymous <span style="font-size:12px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(59,130,246,0.15);color:#60A5FA;margin-left:6px">Debt Fighter</span></div>
+          <div class="post-level">⚡ Level 4 · 🔥 21-day streak</div>
+        </div>
+        <div class="post-time">4d ago</div>
+      </div>
+      <div class="post-body">Hit $5,000 paid off total across all my debts. Never thought I'd see that number. The progress bar going down feels better than any purchase I've ever made.</div>
+      <div class="post-milestone">💰 $5,000 Total Paid Off</div>
+      <div class="post-actions">
+        <div class="post-action" onclick="toggleLike(this,61)">❤️ <span>61</span></div>
+        <div class="post-action">💬 <span>14</span></div>
+        <div class="post-action">↗️ <span>Share</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2831,42 +2886,88 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 
   <!-- Hero -->
   <div class="invest-hero">
-    <div class="invest-hero-label">Your Investing Profile</div>
-    <div class="invest-hero-title" id="invest-hero-title">Let's get started</div>
-    <div class="invest-hero-sub" id="invest-hero-sub">Complete the Risk Profile Quiz to see your personalized investment strategy.</div>
+    <div class="invest-hero-label">Your Portfolio</div>
+    <div class="invest-hero-title" id="invest-hero-title">Track Your Wealth</div>
+    <div class="invest-hero-sub" id="invest-hero-sub">Add your holdings below to see your portfolio breakdown by position and sector.</div>
     <div class="invest-stat-row" id="invest-stat-row" style="display:none">
       <div class="invest-stat">
-        <div class="invest-stat-val" id="invest-stat-profile">—</div>
-        <div class="invest-stat-label">Risk Profile</div>
+        <div class="invest-stat-val" id="invest-stat-total">—</div>
+        <div class="invest-stat-label">Total Value</div>
       </div>
       <div class="invest-stat">
-        <div class="invest-stat-val" id="invest-stat-projection">—</div>
-        <div class="invest-stat-label">10-Year Projection</div>
+        <div class="invest-stat-val" id="invest-stat-holdings">—</div>
+        <div class="invest-stat-label">Holdings</div>
       </div>
       <div class="invest-stat">
-        <div class="invest-stat-val" id="invest-stat-monthly">—</div>
-        <div class="invest-stat-label">Monthly Target</div>
+        <div class="invest-stat-val" id="invest-stat-sectors">—</div>
+        <div class="invest-stat-label">Sectors</div>
       </div>
     </div>
   </div>
 
   <div class="g2">
 
-    <!-- ── 1. RISK PROFILE QUIZ ── -->
-    <div class="card" style="padding:24px">
-      <div class="card-label">🧠 Risk Profile Quiz</div>
-      <div id="quiz-container">
-        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress" style="width:0%"></div></div>
-        <div class="quiz-q" id="quiz-question">Loading...</div>
-        <div class="quiz-options" id="quiz-options"></div>
-        <div style="display:flex;justify-content:flex-end;margin-top:16px">
-          <button id="quiz-next-btn" onclick="quizNext()" style="display:none;padding:10px 22px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">Next →</button>
+    <!-- ── 1. PORTFOLIO PIE CHART ── -->
+    <div class="card" style="padding:24px;grid-column:1/-1">
+      <div class="card-label">🥧 Portfolio Holdings</div>
+
+      <!-- Add holding form -->
+      <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-bottom:16px;align-items:end">
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Holding Name</div>
+          <input id="ph-name" type="text" placeholder="e.g. AAPL, VOO" maxlength="30"
+            style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--t1);font-family:inherit;box-sizing:border-box;outline:none">
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Sector</div>
+          <select id="ph-sector"
+            style="width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--t1);font-family:inherit;box-sizing:border-box;outline:none;appearance:none;cursor:pointer">
+            <option>Tech</option>
+            <option>Healthcare</option>
+            <option>Finance</option>
+            <option>Energy</option>
+            <option>Consumer</option>
+            <option>Industrial</option>
+            <option>Real Estate</option>
+            <option>Utilities</option>
+            <option>Materials</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Value ($)</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="display:flex;align-items:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:0 12px;flex:1">
+              <span style="color:var(--t3);font-weight:700;margin-right:4px">$</span>
+              <input id="ph-value" type="number" placeholder="0" min="0" step="any"
+                style="background:none;border:none;outline:none;padding:10px 0;font-size:14px;font-weight:700;color:var(--t1);font-family:inherit;width:100%;min-width:70px">
+            </div>
+            <button onclick="addHolding()"
+              style="padding:10px 18px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add ＋</button>
+          </div>
         </div>
       </div>
-      <div id="quiz-result-container" style="display:none">
-        <div class="quiz-result" id="quiz-result-content"></div>
-        <button onclick="resetQuiz()" style="width:100%;margin-top:14px;padding:11px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Retake Quiz</button>
+
+      <!-- Holdings list -->
+      <div id="ph-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px"></div>
+
+      <!-- Chart area -->
+      <div id="ph-chart-area" style="display:none">
+        <!-- Toggle -->
+        <div style="display:flex;gap:8px;margin-bottom:16px">
+          <button id="ph-toggle-holding" onclick="setPortfolioView('holding')"
+            style="padding:7px 16px;border-radius:8px;border:1.5px solid var(--blue);background:rgba(59,130,246,0.12);color:var(--blue);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">By Holding</button>
+          <button id="ph-toggle-sector" onclick="setPortfolioView('sector')"
+            style="padding:7px 16px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">By Sector</button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+          <div style="position:relative;width:220px;height:220px;flex-shrink:0;margin:0 auto">
+            <canvas id="ph-chart"></canvas>
+          </div>
+          <div id="ph-legend" style="flex:1;min-width:160px;display:flex;flex-direction:column;gap:8px;padding-top:4px"></div>
+        </div>
       </div>
+      <div id="ph-empty" style="text-align:center;padding:28px 0;color:var(--t3);font-size:14px">Add your first holding above to see your portfolio chart.</div>
     </div>
 
     <!-- ── 2. FIRST $1,000 ROADMAP ── -->
@@ -2923,71 +3024,6 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ── 3. COMPOUND GROWTH CALCULATOR ── -->
-    <div class="card" style="padding:24px">
-      <div class="card-label">🧮 Compound Growth Calculator</div>
-      <div style="font-size:13px;color:var(--t3);margin-bottom:16px">See what consistent investing does over time.</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-        <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Monthly Investment</div>
-          <div style="display:flex;align-items:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:0 12px">
-            <span style="color:var(--t3);font-weight:700;margin-right:4px">$</span>
-            <input id="cg-monthly" type="number" value="200" min="1" oninput="calcCompound()" style="background:none;border:none;outline:none;padding:11px 0;font-size:15px;font-weight:700;color:var(--t1);font-family:inherit;width:100%">
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Annual Return %</div>
-          <div style="display:flex;align-items:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:0 12px">
-            <input id="cg-return" type="number" value="7" min="1" max="30" oninput="calcCompound()" style="background:none;border:none;outline:none;padding:11px 0;font-size:15px;font-weight:700;color:var(--t1);font-family:inherit;width:100%">
-            <span style="color:var(--t3);font-weight:700;margin-left:4px">%</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Time Horizon</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap" id="cg-years-btns">
-          <button onclick="setCGYears(5,this)" class="cg-yr-btn" style="padding:7px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">5 yr</button>
-          <button onclick="setCGYears(10,this)" class="cg-yr-btn active-yr" style="padding:7px 14px;border-radius:8px;border:1.5px solid var(--blue);background:rgba(59,130,246,0.12);color:var(--blue);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">10 yr</button>
-          <button onclick="setCGYears(20,this)" class="cg-yr-btn" style="padding:7px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">20 yr</button>
-          <button onclick="setCGYears(30,this)" class="cg-yr-btn" style="padding:7px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">30 yr</button>
-        </div>
-      </div>
-      <input type="hidden" id="cg-years" value="10">
-      <div class="compound-result" id="cg-result">
-        <div class="compound-result-row"><span class="compound-result-label">Total Invested</span><span class="compound-result-val" id="cg-total-invested">—</span></div>
-        <div class="compound-result-row"><span class="compound-result-label">Investment Gains</span><span class="compound-result-val" style="color:var(--green)" id="cg-gains">—</span></div>
-        <div class="compound-result-row"><span class="compound-result-label" style="font-weight:700;color:var(--t1)">Final Portfolio Value</span><span class="compound-result-val" style="color:var(--blue);font-size:18px" id="cg-final">—</span></div>
-      </div>
-      <div style="position:relative;height:160px;margin-top:16px">
-        <canvas id="cg-chart"></canvas>
-      </div>
-    </div>
-
-    <!-- ── 4. DEBT vs. INVEST CALCULATOR ── -->
-    <div class="card" style="padding:24px">
-      <div class="card-label">⚔️ Debt vs. Invest Calculator</div>
-      <div style="font-size:13px;color:var(--t3);margin-bottom:16px">Should you pay off debt first or start investing? Let the math decide.</div>
-      <div style="margin-bottom:14px">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:8px">Your Debt APRs</div>
-        <div id="dvi-debt-list" style="display:flex;flex-direction:column;gap:8px"></div>
-        <div style="margin-top:10px;display:flex;align-items:center;gap:8px">
-          <div style="font-size:13px;font-weight:600;color:var(--t2);flex:1">Or enter a custom APR:</div>
-          <div style="display:flex;align-items:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:0 12px;width:110px">
-            <input id="dvi-custom-apr" type="number" placeholder="0" min="0" max="100" step="0.1" oninput="calcDVI()" style="background:none;border:none;outline:none;padding:10px 0;font-size:14px;font-weight:700;color:var(--t1);font-family:inherit;width:100%">
-            <span style="color:var(--t3);font-weight:700;margin-left:4px">%</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-bottom:14px">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:6px">Expected Investment Return</div>
-        <div style="display:flex;align-items:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:0 12px">
-          <input id="dvi-return" type="number" value="7" min="1" max="30" step="0.5" oninput="calcDVI()" style="background:none;border:none;outline:none;padding:11px 0;font-size:15px;font-weight:700;color:var(--t1);font-family:inherit;width:100%">
-          <span style="color:var(--t3);font-weight:700;margin-left:4px">% (S&amp;P 500 avg ≈ 7%)</span>
-        </div>
-      </div>
-      <div id="dvi-result"></div>
     </div>
 
   </div><!-- end .g2 -->
@@ -3838,6 +3874,11 @@ function updateXP() {
   document.getElementById('sidebar-xp').style.width = pct + '%';
   document.getElementById('xp-display').textContent = `${currentXP.toLocaleString()} / ${XP_TO_NEXT.toLocaleString()} XP to Level 5`;
   document.getElementById('xp-remaining').textContent = (XP_TO_NEXT - currentXP).toLocaleString();
+}
+
+function toggleLike(el, base) {
+  const liked = el.classList.toggle('liked');
+  el.querySelector('span').textContent = liked ? base + 1 : base;
 }
 
 function showToast(icon, xp) {
@@ -5540,290 +5581,170 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ─────────────────────────────
-//  INVESTING TAB
+//  INVESTING TAB — PORTFOLIO
 // ─────────────────────────────
-// ── Quiz ──
-const QUIZ_QUESTIONS = [
-  {
-    q: "How would you react if your investments dropped 20% in one month?",
-    options: [
-      { text: "Sell immediately — I can't afford to lose more", score: 0 },
-      { text: "Hold and wait for it to recover", score: 1 },
-      { text: "Buy more — this is a discount!", score: 2 }
-    ]
-  },
-  {
-    q: "When do you plan to use this money?",
-    options: [
-      { text: "Within the next 3 years", score: 0 },
-      { text: "In 4–10 years", score: 1 },
-      { text: "10+ years away (retirement or long-term)", score: 2 }
-    ]
-  },
-  {
-    q: "What's your primary investing goal?",
-    options: [
-      { text: "Preserve what I have — safety first", score: 0 },
-      { text: "Grow steadily with some risk", score: 1 },
-      { text: "Maximize long-term growth, I can handle swings", score: 2 }
-    ]
-  },
-  {
-    q: "How much investing experience do you have?",
-    options: [
-      { text: "Little to none — this is new to me", score: 0 },
-      { text: "Some — I've invested but I'm still learning", score: 1 },
-      { text: "Comfortable — I understand market cycles", score: 2 }
-    ]
-  },
-  {
-    q: "If you had $10,000 to invest, how would you split it?",
-    options: [
-      { text: "Mostly bonds and cash — safe and stable", score: 0 },
-      { text: "Mix of stocks and bonds — balanced", score: 1 },
-      { text: "All stocks or index funds — long-term growth", score: 2 }
-    ]
-  }
+// ── Portfolio Holdings ──
+const PORTFOLIO_COLORS = [
+  '#3B82F6','#10B981','#F59E0B','#EF4444','#8B5CF6',
+  '#EC4899','#06B6D4','#84CC16','#F97316','#6366F1',
+  '#14B8A6','#E11D48','#7C3AED','#0EA5E9','#22C55E'
 ];
-const QUIZ_PROFILES = [
-  {
-    name: 'Conservative',
-    emoji: '🛡️',
-    color: '#3B82F6',
-    desc: 'You prioritize protecting your money over maximizing growth. Ideal if you have a short timeline or low risk tolerance.',
-    allocs: [{label:'Bonds', pct:60, color:'#3B82F6'},{label:'Stocks', pct:30, color:'#10B981'},{label:'Cash', pct:10, color:'#9CA3AF'}],
-    monthlyTarget: 100
-  },
-  {
-    name: 'Moderate',
-    emoji: '⚖️',
-    color: '#F59E0B',
-    desc: 'You want growth but with guardrails. A balanced mix of stocks and bonds rides out most volatility while building wealth.',
-    allocs: [{label:'Stocks', pct:60, color:'#10B981'},{label:'Bonds', pct:30, color:'#3B82F6'},{label:'Cash', pct:10, color:'#9CA3AF'}],
-    monthlyTarget: 200
-  },
-  {
-    name: 'Aggressive',
-    emoji: '🚀',
-    color: '#8B5CF6',
-    desc: "You're in it for the long haul. Heavy stock exposure maximizes growth potential — you understand short-term drops are part of the game.",
-    allocs: [{label:'Stocks', pct:90, color:'#10B981'},{label:'Bonds', pct:8, color:'#3B82F6'},{label:'Cash', pct:2, color:'#9CA3AF'}],
-    monthlyTarget: 300
-  }
-];
+const SECTOR_COLORS = {
+  'Tech':'#3B82F6','Healthcare':'#10B981','Finance':'#F59E0B','Energy':'#EF4444',
+  'Consumer':'#8B5CF6','Industrial':'#EC4899','Real Estate':'#06B6D4',
+  'Utilities':'#84CC16','Materials':'#F97316','Other':'#6B7280'
+};
 
-let quizStep = 0;
-let quizScores = [];
-let cgChart = null;
+let portfolioHoldings = JSON.parse(localStorage.getItem('portfolioHoldings') || '[]');
+let phView = 'holding'; // 'holding' or 'sector'
+let phChartInstance = null;
 
-function initQuiz() {
-  const saved = localStorage.getItem('fq_risk_profile');
-  if (saved !== null) {
-    showQuizResult(parseInt(saved));
+function addHolding() {
+  const name = document.getElementById('ph-name').value.trim();
+  const sector = document.getElementById('ph-sector').value;
+  const value = parseFloat(document.getElementById('ph-value').value);
+  if (!name || !value || value <= 0) return;
+  portfolioHoldings.push({ id: Date.now(), name, sector, value });
+  localStorage.setItem('portfolioHoldings', JSON.stringify(portfolioHoldings));
+  document.getElementById('ph-name').value = '';
+  document.getElementById('ph-value').value = '';
+  renderPortfolio();
+}
+
+function removeHolding(id) {
+  portfolioHoldings = portfolioHoldings.filter(h => h.id !== id);
+  localStorage.setItem('portfolioHoldings', JSON.stringify(portfolioHoldings));
+  renderPortfolio();
+}
+
+function setPortfolioView(v) {
+  phView = v;
+  document.getElementById('ph-toggle-holding').style.cssText =
+    v === 'holding'
+      ? 'padding:7px 16px;border-radius:8px;border:1.5px solid var(--blue);background:rgba(59,130,246,0.12);color:var(--blue);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit'
+      : 'padding:7px 16px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit';
+  document.getElementById('ph-toggle-sector').style.cssText =
+    v === 'sector'
+      ? 'padding:7px 16px;border-radius:8px;border:1.5px solid var(--blue);background:rgba(59,130,246,0.12);color:var(--blue);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit'
+      : 'padding:7px 16px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg2);color:var(--t2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit';
+  renderPortfolioChart();
+}
+
+function renderPortfolio() {
+  const listEl = document.getElementById('ph-list');
+  const chartArea = document.getElementById('ph-chart-area');
+  const emptyEl = document.getElementById('ph-empty');
+  const statRow = document.getElementById('invest-stat-row');
+
+  // List
+  const total = portfolioHoldings.reduce((s, h) => s + h.value, 0);
+  listEl.innerHTML = portfolioHoldings.map((h, i) => {
+    const pct = total > 0 ? (h.value / total * 100).toFixed(1) : '0.0';
+    const color = PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length];
+    return `<div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:${color};flex-shrink:0"></div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:14px;font-weight:700;color:var(--t1)">${h.name}</div>
+        <div style="font-size:12px;color:var(--t3)">${h.sector}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:14px;font-weight:800;color:var(--t1)">$${h.value.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+        <div style="font-size:12px;color:var(--t3)">${pct}%</div>
+      </div>
+      <button onclick="removeHolding(${h.id})" style="padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:none;color:var(--t3);font-size:12px;cursor:pointer;font-family:inherit">✕</button>
+    </div>`;
+  }).join('');
+
+  if (portfolioHoldings.length === 0) {
+    chartArea.style.display = 'none';
+    emptyEl.style.display = 'block';
+    statRow.style.display = 'none';
     return;
   }
-  quizStep = 0; quizScores = [];
-  renderQuizStep();
+
+  chartArea.style.display = 'block';
+  emptyEl.style.display = 'none';
+
+  // Hero stats
+  const sectors = [...new Set(portfolioHoldings.map(h => h.sector))];
+  statRow.style.display = 'flex';
+  document.getElementById('invest-stat-total').textContent = '$' + total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.getElementById('invest-stat-holdings').textContent = portfolioHoldings.length;
+  document.getElementById('invest-stat-sectors').textContent = sectors.length;
+
+  renderPortfolioChart();
 }
 
-function renderQuizStep() {
-  const q = QUIZ_QUESTIONS[quizStep];
-  document.getElementById('quiz-progress').style.width = ((quizStep / QUIZ_QUESTIONS.length) * 100) + '%';
-  document.getElementById('quiz-question').textContent = `${quizStep + 1}/${QUIZ_QUESTIONS.length}  ${q.q}`;
-  const opts = document.getElementById('quiz-options');
-  opts.innerHTML = q.options.map((o, i) =>
-    `<button class="quiz-option" onclick="selectQuizOption(this,${i},${o.score})">${o.text}</button>`
-  ).join('');
-  document.getElementById('quiz-next-btn').style.display = 'none';
-}
+function renderPortfolioChart() {
+  if (!portfolioHoldings.length) return;
+  const canvas = document.getElementById('ph-chart');
+  const legendEl = document.getElementById('ph-legend');
 
-function selectQuizOption(btn, idx, score) {
-  document.querySelectorAll('#quiz-options .quiz-option').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  quizScores[quizStep] = score;
-  document.getElementById('quiz-next-btn').style.display = 'inline-block';
-}
+  let labels, values, colors;
 
-function quizNext() {
-  if (quizScores[quizStep] === undefined) return;
-  quizStep++;
-  if (quizStep < QUIZ_QUESTIONS.length) {
-    renderQuizStep();
+  if (phView === 'holding') {
+    labels = portfolioHoldings.map(h => h.name);
+    values = portfolioHoldings.map(h => h.value);
+    colors = portfolioHoldings.map((_, i) => PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]);
   } else {
-    const total = quizScores.reduce((a, b) => a + b, 0);
-    const profileIdx = total <= 3 ? 0 : total <= 6 ? 1 : 2;
-    localStorage.setItem('fq_risk_profile', String(profileIdx));
-    showQuizResult(profileIdx);
-    updateInvestHero(profileIdx);
+    // Group by sector
+    const sectorMap = {};
+    portfolioHoldings.forEach(h => {
+      sectorMap[h.sector] = (sectorMap[h.sector] || 0) + h.value;
+    });
+    labels = Object.keys(sectorMap);
+    values = labels.map(s => sectorMap[s]);
+    colors = labels.map(s => SECTOR_COLORS[s] || '#6B7280');
   }
-}
 
-function showQuizResult(idx) {
-  document.getElementById('quiz-container').style.display = 'none';
-  document.getElementById('quiz-result-container').style.display = 'block';
-  const p = QUIZ_PROFILES[idx];
-  document.getElementById('quiz-result-content').innerHTML = `
-    <div class="quiz-result-badge" style="background:${p.color}22;color:${p.color}">
-      <span style="font-size:24px">${p.emoji}</span> ${p.name} Investor
-    </div>
-    <div class="quiz-result-title">${p.name} Profile</div>
-    <div class="quiz-result-sub">${p.desc}</div>
-    <div style="text-align:left;margin-top:4px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:12px">Recommended Allocation</div>
-      ${p.allocs.map(a => `
-        <div class="alloc-row">
-          <span class="alloc-label">${a.label}</span>
-          <div class="alloc-bar-wrap"><div class="alloc-bar-fill" style="width:${a.pct}%;background:${a.color}"></div></div>
-          <span class="alloc-pct" style="color:${a.color}">${a.pct}%</span>
-        </div>`).join('')}
-    </div>`;
-  updateInvestHero(idx);
-}
+  const total = values.reduce((a, b) => a + b, 0);
 
-function resetQuiz() {
-  localStorage.removeItem('fq_risk_profile');
-  quizStep = 0; quizScores = [];
-  document.getElementById('quiz-container').style.display = 'block';
-  document.getElementById('quiz-result-container').style.display = 'none';
-  renderQuizStep();
-}
-
-function updateInvestHero(idx) {
-  const p = QUIZ_PROFILES[idx];
-  document.getElementById('invest-hero-title').textContent = p.emoji + ' ' + p.name + ' Investor';
-  document.getElementById('invest-hero-sub').textContent = p.desc;
-  document.getElementById('invest-stat-row').style.display = 'flex';
-  document.getElementById('invest-stat-profile').textContent = p.name;
-  document.getElementById('invest-stat-monthly').textContent = '$' + p.monthlyTarget + '/mo';
-  // 10 year projection at 7% with monthly target
-  const proj = calcFutureValue(p.monthlyTarget, 7, 10);
-  document.getElementById('invest-stat-projection').textContent = '$' + formatK(proj);
-}
-
-// ── Compound Growth Calculator ──
-let cgYears = 10;
-
-function setCGYears(y, btn) {
-  cgYears = y;
-  document.getElementById('cg-years').value = y;
-  document.querySelectorAll('.cg-yr-btn').forEach(b => {
-    b.style.borderColor = 'var(--border)';
-    b.style.background = 'var(--bg2)';
-    b.style.color = 'var(--t2)';
-  });
-  btn.style.borderColor = 'var(--blue)';
-  btn.style.background = 'rgba(59,130,246,0.12)';
-  btn.style.color = 'var(--blue)';
-  calcCompound();
-}
-
-function calcFutureValue(monthly, annualPct, years) {
-  const r = annualPct / 100 / 12;
-  const n = years * 12;
-  return monthly * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-}
-
-function formatK(n) {
-  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-  if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-  return n.toFixed(0);
-}
-
-function calcCompound() {
-  const monthly = parseFloat(document.getElementById('cg-monthly').value) || 0;
-  const ret = parseFloat(document.getElementById('cg-return').value) || 7;
-  const years = cgYears;
-  const fv = calcFutureValue(monthly, ret, years);
-  const invested = monthly * years * 12;
-  const gains = fv - invested;
-  document.getElementById('cg-total-invested').textContent = '$' + invested.toLocaleString('en-US', {maximumFractionDigits:0});
-  document.getElementById('cg-gains').textContent = '+$' + gains.toLocaleString('en-US', {maximumFractionDigits:0});
-  document.getElementById('cg-final').textContent = '$' + fv.toLocaleString('en-US', {maximumFractionDigits:0});
-  // Build chart data year by year
-  const labels = [], investedData = [], totalData = [];
-  for (let y = 0; y <= years; y++) {
-    labels.push(y === 0 ? 'Now' : `Yr ${y}`);
-    investedData.push(monthly * y * 12);
-    totalData.push(y === 0 ? 0 : calcFutureValue(monthly, ret, y));
-  }
-  if (cgChart) cgChart.destroy();
-  const ctx = document.getElementById('cg-chart').getContext('2d');
-  cgChart = new Chart(ctx, {
-    type: 'line',
+  if (phChartInstance) phChartInstance.destroy();
+  const ctx = canvas.getContext('2d');
+  phChartInstance = new Chart(ctx, {
+    type: 'doughnut',
     data: {
       labels,
-      datasets: [
-        { label: 'Invested', data: investedData, borderColor: 'rgba(156,163,175,0.6)', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, borderDash: [4,4] },
-        { label: 'Total Value', data: totalData, borderColor: '#3B82F6', backgroundColor: 'rgba(59,130,246,0.08)', borderWidth: 2.5, pointRadius: 0, fill: true }
-      ]
+      datasets: [{
+        data: values,
+        backgroundColor: colors,
+        borderColor: 'var(--card)',
+        borderWidth: 3,
+        hoverOffset: 8
+      }]
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: ctx => ' $' + ctx.raw.toLocaleString('en-US', {maximumFractionDigits:0}) }
-      }},
-      scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#4B5563', maxTicksLimit: 6, font: { size: 11 } } },
-        y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#4B5563', font: { size: 11 }, callback: v => '$' + formatK(v) } }
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const pct = (ctx.raw / total * 100).toFixed(1);
+              return ` $${ctx.raw.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})} (${pct}%)`;
+            }
+          }
+        }
       }
     }
   });
+
+  // Render legend
+  legendEl.innerHTML = labels.map((lbl, i) => {
+    const pct = (values[i] / total * 100).toFixed(1);
+    return `<div style="display:flex;align-items:center;gap:8px">
+      <div style="width:10px;height:10px;border-radius:50%;background:${colors[i]};flex-shrink:0"></div>
+      <div style="flex:1;font-size:13px;font-weight:600;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${lbl}</div>
+      <div style="font-size:13px;font-weight:700;color:var(--t2)">${pct}%</div>
+    </div>`;
+  }).join('');
 }
 
-// ── Debt vs. Invest ──
-function initDVI() {
-  const dviList = document.getElementById('dvi-debt-list');
-  if (!dviList) return;
-  if (!debts.length) {
-    dviList.innerHTML = '<div style="font-size:13px;color:var(--t3);padding:8px 0">No debts added yet — use the custom APR field below.</div>';
-  } else {
-    dviList.innerHTML = debts.map((d, i) => {
-      const icons = {credit:'💳',student:'🎓',personal:'💼',auto:'🚗'};
-      return `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;cursor:pointer" onclick="setDVIDebt(${d.apr},this)">
-        <span style="font-size:18px">${icons[d.type]||'💰'}</span>
-        <span style="font-size:13px;font-weight:600;flex:1">${d.name}</span>
-        <span style="font-size:14px;font-weight:800;color:var(--red)">${d.apr}% APR</span>
-        <span style="font-size:11px;color:var(--t3)">Select →</span>
-      </div>`;
-    }).join('');
-  }
-  calcDVI();
-}
-
-function setDVIDebt(apr, el) {
-  document.getElementById('dvi-custom-apr').value = apr;
-  document.querySelectorAll('#dvi-debt-list > div').forEach(d => d.style.borderColor = 'var(--border)');
-  el.style.borderColor = 'var(--green)';
-  calcDVI();
-}
-
-function calcDVI() {
-  const debtAPR = parseFloat(document.getElementById('dvi-custom-apr').value) || 0;
-  const investReturn = parseFloat(document.getElementById('dvi-return').value) || 7;
-  const result = document.getElementById('dvi-result');
-  if (!debtAPR) { result.innerHTML = ''; return; }
-  const diff = debtAPR - investReturn;
-  let html;
-  if (diff >= 4) {
-    html = `<div class="dvi-verdict" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25)">
-      <div class="dvi-verdict-emoji">💳</div>
-      <div class="dvi-verdict-title" style="color:var(--red)">Pay Off Debt First</div>
-      <div class="dvi-verdict-sub" style="color:var(--t2)">Your debt at <strong style="color:var(--red)">${debtAPR}% APR</strong> costs more than investing returns <strong style="color:var(--t1)">${investReturn}%</strong>. Paying it off is a guaranteed ${debtAPR}% return — better than the market.</div>
-    </div>`;
-  } else if (diff >= 0) {
-    html = `<div class="dvi-verdict" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25)">
-      <div class="dvi-verdict-emoji">⚖️</div>
-      <div class="dvi-verdict-title" style="color:var(--gold)">It's Close — Do Both</div>
-      <div class="dvi-verdict-sub" style="color:var(--t2)">Your debt <strong style="color:var(--gold)">${debtAPR}% APR</strong> is close to investment returns <strong style="color:var(--t1)">${investReturn}%</strong>. Consider splitting extra money — pay down debt AND invest a little each month.</div>
-    </div>`;
-  } else {
-    html = `<div class="dvi-verdict" style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25)">
-      <div class="dvi-verdict-emoji">📈</div>
-      <div class="dvi-verdict-title" style="color:var(--green)">Invest While Paying Minimums</div>
-      <div class="dvi-verdict-sub" style="color:var(--t2)">Your debt at <strong style="color:var(--t1)">${debtAPR}% APR</strong> is lower than expected returns of <strong style="color:var(--green)">${investReturn}%</strong>. Pay minimums on debt and invest the rest — the math favors it.</div>
-    </div>`;
-  }
-  result.innerHTML = html;
+function initInvesting() {
+  loadRoadmapState();
+  renderPortfolio();
 }
 
 // ── Roadmap checklist ──
@@ -5847,16 +5768,6 @@ function loadRoadmapState() {
       el.querySelector('.roadmap-check-box span').style.display = 'block';
     }
   });
-}
-
-function initInvesting() {
-  initQuiz();
-  initDVI();
-  calcCompound();
-  loadRoadmapState();
-  // Check if profile already saved and update hero
-  const saved = localStorage.getItem('fq_risk_profile');
-  if (saved !== null) updateInvestHero(parseInt(saved));
 }
 
 // ─────────────────────────────
